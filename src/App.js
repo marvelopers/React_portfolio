@@ -2,24 +2,32 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Sample from './component/Sample';
+import Navbar from './component/Navbar';
+import Home from './component/Home';
+import About from './component/About';
+import Work from './component/Work';
+import Testimonials from './component/Testimonials';
+import Contact from './component/Contact';
+
+
 function App() {
+
+  console.log('App() 실행');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar></Navbar>
+      <main>
+        <section id="portfolio">
+          <Home></Home>
+          <About></About>
+          <Work></Work>
+          <Testimonials></Testimonials>
+          <Contact></Contact>
+        </section>
+      </main>
+    </>
   );
 }
 
