@@ -4,49 +4,9 @@ import fitpet from '../imgs/fitpet_logo.png';
 import mbi from '../imgs/mbi_logo.png';
 import iwt from '../imgs/iwt_logo.png';
 
-function About() {
+function About(props) {
 
-  const data = {
-    title: 'About Me',
-    description: `성장에 가치를 두는 사람으로 밝고 맑은 것들을 좋아합니다.
-    가치로운 일에는 멘땅의 헤딩도 서슴지 않아 사서고생이라는 호를 가지고 있습니다.
-    행동력, 통찰력, 끈기력을 가지고 있으며, 지구력을 키워내는 중입니다.
-    사용자가 서비스를 적극적으로 이용할 수 있는 서비스를 만들기 위해
-    고민하는 개발자입니다.
-    사용자 편의성을 높이는 UI/UX와 사용자가 입력한 데이터를 효과적으로
-    수집할 수 있는 화면을 좋은 코드로 작성하기 위해 매일 2시간 이상 개발
-    공부를 하고 있습니다.`,
-    major: [
-      {
-        title: 'Front-end',
-        icon: 'fab fa-js-square',
-        description: ["HTML5", "CSS3", "Javascript"]
-      },
-      {
-        title: 'Back-end',
-        icon: 'fab fa-java',
-        description: ["Java", "nodejs"]
-      },
-      {
-        title: 'Marketing',
-        icon: 'fab fa-google',
-        description: ["google Analytics, Tag Manager"]
-      },
-      {
-        title: 'Front-end',
-        icon: 'fab fa-js-square',
-        description: ["HTML5", "Javascript"]
-      },
-      {
-        title: 'Back-end',
-        icon: 'fab fa-java',
-        description: ["Java", "nodejs"]
-      }
-    ]
-
-  };
-
-  const { title, description, major } = data;
+  const { title, description, major } = props.aboutData;
 
   return (
     <section id="about" class="section section__container">
@@ -66,7 +26,7 @@ function About() {
               {m.description.join(',')}
             </div>
           </div>
-        ))};
+        ))}
       </div>
 
       <div class="about__jobs">

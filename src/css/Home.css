@@ -93,7 +93,7 @@ p{
 
 /* Home */
 #Home{
-    background: url('../imgs/green.png') center/cover no-repeat ;
+    background: url('/imgs/green.png') center/cover no-repeat ;
     padding: 40px;
     padding-top: 150px;
     text-align: center;
