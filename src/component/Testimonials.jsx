@@ -1,7 +1,5 @@
 import React from 'react';
 import '../css/Testimonials.css';
-import jsh from "../imgs/jsh.jpeg";
-import kyj from "../imgs/kyj.jpeg";
 
 function Testimonials(props) {
 
@@ -21,7 +19,7 @@ function Testimonials(props) {
                 <p class="name">{t.name}</p>
               </div>
             </div>
-          ))};
+          ))}
         </div>
       </div>
     </section>);
