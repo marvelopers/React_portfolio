@@ -1,36 +1,30 @@
 import React from 'react';
-import '../css/Work.css';
-
-
-import board from '../imgs/board.jpeg';
-import nodeSt from '../imgs/nodeSt.jpeg';
-import happy from '../imgs/happy.jpeg';
-import dataR from '../imgs/dataR.jpeg';
-import iwt from '../imgs/iwt.jpeg';
+import styled from "styled-components";
 
 
 function Work() {
   return (
-    <section id="work" class="section">
-      <div class="" section__container>
+    <SectionAbout id="work" className="section">
+      <div className="section__container">
+
         <h1>My Work</h1>
         <h3>Projects</h3>
-        <div class="work__categories">
-          <button data-filter="All" class="category__btn selected">
-            All<span class="category__count">5</span>
+        <div className="work__categories">
+          <button data-filter="All" className="category__btn selected">
+            All<span className="category__count">5</span>
           </button>
-          <button data-filter="Developer" class="category__btn">
-            Developer<span class="category__count">3</span>
+          <button data-filter="Developer" className="category__btn">
+            Developer<span className="category__count">3</span>
           </button>
-          <button data-filter="Marketer" class="category__btn">
-            Marketer<span class="category__count">2</span>
+          <button data-filter="Marketer" className="category__btn">
+            Marketer<span className="category__count">2</span>
           </button>
         </div>
 
-        <div class="work__projects">
-          <a data-type="Developer" href="#p1" class="project" target="blank" id="p1">
-            <img src={board} alt="project1" class="project__img" />
-            <div class="project__description">
+        <div className="work__projects">
+          <a data-type="Developer" href="#p1" className="project" target="blank" id="p1">
+            {/* <img src={board} alt="project1" className="project__img" /> */}
+            <div className="project__description">
               <h3>[웹 프로그래밍 Java]</h3>
               <ul>
                 <li>2020.12~2020.06(종료 예정)</li>
@@ -39,9 +33,9 @@ function Work() {
               </ul>
             </div>
           </a>
-          <a data-type="Developer" href="#p2" class="project" target="blank" id="p2">
-            <img src={nodeSt} alt="project1" class="project__img" />
-            <div class="project__description">
+          <a data-type="Developer" href="#p2" className="project" target="blank" id="p2">
+            {/* <img src={nodeSt} alt="project1" className="project__img" /> */}
+            <div className="project__description">
               <h3>[Node.js 스터디]</h3>
               <ul>
                 <li>2020.01~2020.04</li>
@@ -50,9 +44,9 @@ function Work() {
               </ul>
             </div>
           </a>
-          <a data-type="Marketer" href="#p3" class="project" target="blank" id="p3">
-            <img src={happy} alt="project1" class="project__img" />
-            <div class="project__description">
+          <a data-type="Marketer" href="#p3" className="project" target="blank" id="p3">
+            {/* <img src={happy} alt="project1" className="project__img" /> */}
+            <div className="project__description">
               <h3>[해피톡 홈페이지 리뉴얼]</h3>
               <ul>
                 <li>2019.01~20ß19.06</li>
@@ -61,9 +55,9 @@ function Work() {
               </ul>
             </div>
           </a>
-          <a data-type="Developer" href="#p4" class="project" target="blank" id="p4">
-            <img src={dataR} alt="project1" class="project__img" />
-            <div class="project__description">
+          <a data-type="Developer" href="#p4" className="project" target="blank" id="p4">
+            {/* <img src={dataR} alt="project1" className="project__img" /> */}
+            <div className="project__description">
               <h3>[빅데이터 R 수업 수료]</h3>
               <ul>
                 <li>2019.02~2019.03</li>
@@ -72,9 +66,9 @@ function Work() {
               </ul>
             </div>
           </a>
-          <a data-type="Marketer" href="#p5" class="project" target="blank" id="p5">
-            <img src={iwt} alt="project1" class="project__img" />
-            <div class="project__description">
+          <a data-type="Marketer" href="#p5" className="project" target="blank" id="p5">
+            {/* <img src={iwt} alt="project1" className="project__img" /> */}
+            <div className="project__description">
               <h3>[회사 홈페이지 리뉴얼]</h3>
               <ul>
                 <li>2017.01~2017.04</li>
@@ -85,9 +79,15 @@ function Work() {
           </a>
         </div>
       </div>
-    </section>
-
+    </SectionAbout>
   );
 }
+
+/////////////style/////////////
+const SectionAbout = styled.section`
+  border : 1px solid black;
+  /* background-color : black; */
+`;
+
 
 export default Work;
