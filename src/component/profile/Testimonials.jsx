@@ -1,11 +1,14 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
+import { useSelector } from "react-redux";
+import { getProfileData } from "../../store/store";
+
+
 function Testimonals(props) {
 
-  const { testimonials } = props.speech;
-
-
+  const storeData = useSelector(getProfileData);
+  const testimonials = storeData.speech.testimonials;
 
   return (
     <SectionAbout id="testimonals" class="section">

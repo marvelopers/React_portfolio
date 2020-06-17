@@ -2,31 +2,23 @@ import React from 'react';
 import styled from "styled-components";
 import AboutMajor from './AboutMajor';
 
-import { store } from "./store/store";
+import { useSelector } from 'react-redux';
+import { getProfileData } from '../../store/store';
+
 
 function About(props) {
 
-  // console.log('aboutData', props.aboutData);
-  const { title, description, major } = props.aboutData;
+  const storeData = useSelector(getProfileData);
+  const aboutData = storeData.aboutData;
 
   //store
-
-  const store = createStore(reducer);
-  console.log("store===>", store.getState());
-
-  const listener = () => {
-    const state = store.getState();
-    console.log(state);
-  };
-
-  const unsubscribe = store.subscribe(listener);
 
   return (
 
     < SectionAbout id="about" className="section section__container" >
-      <h1 className="about__title">{title}</h1>
-      <p>{description}</p>
-      <AboutMajor majorData={major}></AboutMajor>
+      <h1 className="about__title">{aboutData.title}</h1>
+      <p>{aboutData.description}</p>
+      <AboutMajor></AboutMajor>
       <div className="about__jobs">
         <div className="job">
           {/* <img src={fitpet} alt="fitpet__logo" className="job__logo" /> */}

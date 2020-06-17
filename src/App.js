@@ -17,26 +17,15 @@ import Write from './component/blog/Write';
 
 import { store } from "./store/store";
 
+import { useDispatch, useSelector } from "react-redux";
+import { profileDataReducer, getProfileData } from "./store/store";
+
 //useeffect
 
 
 
 /////////////////////////
 const GlobalStyle = createGlobalStyle`
-  /* Color */
-  --color-white: #ffffff;
-  --color-light-white: #FEF7F7;
-  --color-dark-white: #dbdbdb;
-  --color-grey: #616161;
-  --color-light-grey: #7c7979;
-  --color-dark-grey: #4d4d4d;
-  --color-dark-black: #222222;
-  --color-purple: #7c2ae8;
-  --color-dark-purple: #2A0E4F;
-  --color-deep-purple: #381369;
-  --color-orange: #E87041;
-  --color-yellow: #fff7d1;
-
   body{
     padding : 0;
     margin : 0;
@@ -49,40 +38,60 @@ const GlobalStyle = createGlobalStyle`
 
 
 function App() {
-  console.log("STORE=>", store.getState());
-  const [profileData, setProfileData] = useState(undefined);
+
+  const dispatch = useDispatch();
+  const storeData = useSelector(getProfileData);
 
 
-
-  const getProfileData = () => {
-    // console.log('getProfileDataCalled');
-    // setProfileData(JSON.parse(localStorage.getItem("profileData")));
-
-
-    // this.porps = localStorage.getProfileData(profileData);
-  }
+  /*
+  * action: {type: string, payload: parameter}
+  */
 
   useEffect(() => {
-    console.log('useEffect');
-    // getProfileData()
+
   }, []);
+
+  const data = JSON.stringify(storeData.homeData);
+
+  console.log(data);
 
   return (
     <>
+      <GlobalStyle />
+
+      <button onClick={() => {
+
+        console.log(data);
+
+        dispatch({ type: "SET_DATA", payload: { newHomeData: "NewMarVeloper" } });
+      }}>Next Data</button>
+
+      <button onClick={() => {
+        dispatch({ type: "SET_DATA", payload: { newHomeData: "NOWMarVeloper" } })
+      }}
+      >NOW Data</button>
+
+      <button onClick={() => {
+        dispatch({ type: "MIX_DATA", payload: { mixHomeData: "DataMix" } })
+      }}
+      >Mix Data</button>
+
+
+
       <Navbar></Navbar>
+      {/* {JSON.stringify(storeData.homeData)} */}
+
       <main>
-        {profileData &&
-          <section id="portfolio">
-            <Home></Home>
-            <About></About>
-            <Work></Work>
-            <Testimonials ></Testimonials>
-            <Contact></Contact>
-            <Card></Card>
-            <CardList></CardList>
-            <Write></Write>
-          </section>
-        }
+        <section id="portfolio">
+          <Home></Home>
+          <About></About>
+          <Work></Work>
+          <Testimonials ></Testimonials>
+          <Contact></Contact>
+          <Card></Card>
+          <CardList></CardList>
+          <Write></Write>
+        </section >
       </main>
     </>
   );

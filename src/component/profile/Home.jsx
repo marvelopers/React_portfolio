@@ -1,22 +1,27 @@
 import React from 'react';
 import styled from "styled-components";
 
+import { useSelector } from "react-redux";
+import { getProfileData } from "../../store/store";
+
 function Home(props) {
 
-  const { title, description, description2 } = props.homeData;
+  // const { title, description, description2 } = props.homeData;
+
+  const storeData = useSelector(getProfileData);
 
   return (
     <StyledHomeSection id="Home">
       <div className="home__container">
         <img src="" alt="김서현" className="home__avatar" />
         <h1 className="home__title">
-          title<br />
+          {storeData.homeData.title}<br />
         </h1>
         <h2 className="home__description">
-          description<br /><br />
+          {storeData.homeData.subtitle}<br /><br />
         </h2>
         <h3 className="home__description">
-          description2
+          {storeData.homeData.description}
         </h3>
       </div>
     </StyledHomeSection>
@@ -26,7 +31,6 @@ function Home(props) {
 export default Home;
 
 const StyledHomeSection = styled.section`
-  .home__contianer {
-    
+  .home__contianer {    
   }
 `;

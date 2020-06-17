@@ -1,17 +1,11 @@
 import { createStore } from 'redux';
 
-/*
- * Action
- */
-
-const INCREMENT = "INCREMENT";
-
 
 const profileData = {
   homeData: {
     title: 'MarVeloper',
-    description: 'Developer with Marketer.',
-    description2: `나의 일이 세상에 긍정적인 영향을 주는 일이 되기를 바랍니다.
+    subtitle: 'Developer with Marketer.',
+    description: `나의 일이 세상에 긍정적인 영향을 주는 일이 되기를 바랍니다.
       세상을 이롭게하는 마케팅을 사랑했으나, 보다 근본적으로 세상을 이롭게할 수 있는 개발을 만났습니다.
       지금은 개발에 모든 에너지를 쏟고 있습니다. :)`
   },
@@ -77,12 +71,38 @@ const profileData = {
   }
 };
 
-function data(state = profileData, action) {
+export function profileDataReducer(state = profileData, action) {
   switch (action.type) {
+    case "SET_DATA":
+      console.log("action.type!", action.payload);
+      console.log("action.payload.newHomedata", action.payload.newHomeData);
+      const homeData = state.homeData;
+      const newState = {
+        ...state,
+        homeData: {
+          ...homeData,
+          title: action.payload.newHomeData
+        }
+      }
+      return newState;
+    case "MIX_DATA":
+      console.log("action.type!", action.payload);
+      console.log("action.payload.mixHomedata", action.payload.mixHomeData);
+      const mixhomeData = state.homeData;
+      const mixnewState = {
+        ...state,
+        homeData: {
+          ...mixhomeData,
+          title: action.payload.mixHomeData
+        }
+      }
+      return mixnewState;
     default:
-      return state
+      return state;
   }
 }
 
 
-export const store = createStore(data, profileData);
+export const getProfileData = (state) => state;
+
+export const store = createStore(profileDataReducer, profileData);

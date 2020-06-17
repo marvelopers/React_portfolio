@@ -20,3 +20,8 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA 
 
 serviceWorker.unregister();
+
+
+//reducer를 export 했습니다.
+
+// 1) sotre 생성

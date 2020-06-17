@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react';
 import styled from "styled-components";
 
+import { useSelector } from "react-redux";
+import { getProfileData } from "../../store/store";
+
+
 function About_major(props) {
 
-  // console.log('majorData', props.major);
-  // console.log('major-==>', props.majorData);
-  const { majorData } = props;
+
+  const storeData = useSelector(getProfileData);
+  const majorData = storeData.aboutData.major;
 
   return (
 
