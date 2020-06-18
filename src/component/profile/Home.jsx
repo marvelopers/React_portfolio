@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { getProfileData } from "../../store/store";
 
-function Home(props) {
+export function Home(props) {
 
   // const { title, description, description2 } = props.homeData;
 

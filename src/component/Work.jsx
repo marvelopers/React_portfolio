@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 
 
-function Work() {
+export function Work() {
   return (
     <SectionAbout id="work" className="section">
       <div className="section__container">

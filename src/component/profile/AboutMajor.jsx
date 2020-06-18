@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { getProfileData } from "../../store/store";
 
 
-function About_major(props) {
+export function About_major(props) {
 
 
   const storeData = useSelector(getProfileData);

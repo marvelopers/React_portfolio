@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
-function Navbar() {
+import { routes } from "../../route/route";
+
+export function Navbar() {
   return (
     <NavbarStyle id="navbar">
       <div className="navbar__container">
@@ -13,13 +15,14 @@ function Navbar() {
         </div>
         <div className="navbar__menu">
           <ul className="navbar__menu--list">
-            <li className="navbar__menu--list active">
-              <Link to="/">About Me</Link>
-            </li>
-            <li className="navbar__menu--list">
-              <Link to="/blog">Go to blog</Link>
-            </li>
-
+            {routes.map(r => {
+              return (
+                <li className={r.className}>
+                  <Link to={r.path}>{r.page}</Link>
+                </li>
+              )
+            })
+            }
           </ul>
         </div>
         <button className="navbar__toggle--btn">Button

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { getProfileData } from "../../store/store";
 
 
-function Testimonals(props) {
+export function Testimonials(props) {
 
   const storeData = useSelector(getProfileData);
   const testimonials = storeData.speech.testimonials;
@@ -38,4 +38,4 @@ const SectionAbout = styled.section`
 
 
 `;
-export default Testimonals;
+export default Testimonials;

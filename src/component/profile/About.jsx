@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { getProfileData } from '../../store/store';
 
 
-function About(props) {
+export function About(props) {
 
   const storeData = useSelector(getProfileData);
   const aboutData = storeData.aboutData;

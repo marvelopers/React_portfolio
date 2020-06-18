@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/Contact.css';
 
-function Contact() {
+export function Contact() {
   return (
     <SectionAbout id="contact" className="section">
       <h1 className="contact__title">contact</h1>

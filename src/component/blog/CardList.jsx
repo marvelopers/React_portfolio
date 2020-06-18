@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CardList() {
+export function CardList() {
   return (
     <section id="list" className="list">
       <div className="list__container">
