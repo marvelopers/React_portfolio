@@ -17,4 +17,12 @@ export const routes = [
     exact: true,
     component: <Blog />
   }
+  // },
+  // {
+  //   className: "navbar__menu--list",
+  //   page: "GotoBlog",
+  //   path: "/Write",
+  //   exact: true,
+  //   component: <Blog />
+  // }
 ]

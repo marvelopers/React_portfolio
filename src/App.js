@@ -1,21 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 
 //profile
 import Navbar from './component/profile/Navbar';
-import Home from './component/profile/Home';
-import About from './component/profile/About';
-import Work from './component/profile/Work';
-import Testimonials from './component/profile/Testimonials';
-import Contact from './component/profile/Contact';
-
-//blog
-import Card from './component/blog/Card';
-import CardList from './component/blog/CardList';
-import Write from './component/blog/Write';
-
-import { store } from "./store/store";
 
 import { useDispatch, useSelector } from "react-redux";
 import { profileDataReducer, getProfileData } from "./store/store";
@@ -23,12 +10,7 @@ import { RouteContainer } from "./route";
 
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
 } from "react-router-dom";
-
-import { routes } from "./route";
 
 
 /////////////////////////
@@ -39,20 +21,16 @@ const GlobalStyle = createGlobalStyle`
     font-family : "Noto Sans KR", sans-serif;
     cursor : default;
   }
-`;
+`
 
 /////////////////////////
 
 
 function App() {
 
+  //Redux_Store
   const dispatch = useDispatch();
   const storeData = useSelector(getProfileData);
-
-
-  /*
-  * action: {type: string, payload: parameter}
-  */
 
   useEffect(() => {
 
@@ -61,8 +39,8 @@ function App() {
   const data = JSON.stringify(storeData.homeData);
 
   return (
+    //하나의 객체만 return 한다.
     <>
-
       <GlobalStyle />
       <button onClick={() => {
 
@@ -92,29 +70,6 @@ function App() {
   );
 }
 
-
-function AboutMe() {
-  return (
-    <>
-      <Home></Home>
-      <About></About>
-      <Work></Work>
-      <Testimonials ></Testimonials>
-      <Contact></Contact>
-    </>
-  )
-
-}
-function GoToBlog() {
-  return (
-    <>
-      <Card></Card>
-      <CardList></CardList>
-      <Write></Write>
-    </>
-  )
-}
-=======
 // function AboutMe() {
 //   return (
 //     <>
@@ -136,4 +91,5 @@ function GoToBlog() {
 //     </>
 //   )
 // }
+
 export default App;

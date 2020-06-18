@@ -33,9 +33,22 @@ export function Testimonials(props) {
 
 /////////////style/////////////
 const SectionAbout = styled.section`
-  border : 1px solid black;
-  /* background-color : black; */
+  background-color : #f3f6d4;
+  display : flex;
+  /* margin : 40px; */
 
-
+  .testimonial__avatar{
+    border-radius : 29%;
+    width : 250px;
+  }
+  .testimonial__speech-bubble{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--color-white);
+    border-radius: var(--size-border-radius);
+  }
 `;
 export default Testimonials;

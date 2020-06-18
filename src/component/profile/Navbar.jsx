@@ -10,7 +10,6 @@ export function Navbar() {
       <div className="navbar__container">
         <div className="navbar__logo">
           <a href="index.html">
-            {/* <img src={logo} alt="logo" className="navbar__logo--img" /> */}
           </a>
         </div>
         <div className="navbar__menu">
@@ -25,8 +24,7 @@ export function Navbar() {
             }
           </ul>
         </div>
-        <button className="navbar__toggle--btn">Button
-        </button>
+        {/* <button className="navbar__toggle--btn">Button</button> */}
       </div>
     </NavbarStyle>
   )
@@ -36,6 +34,10 @@ export function Navbar() {
 /////////////////////////
 
 const NavbarStyle = styled.div`
+  position: fixed;
+  width :100%;
+  z-index : 1000;
+
   .navbar__container{
   width: 1080px;
   margin: 0 auto;
@@ -53,7 +55,6 @@ const NavbarStyle = styled.div`
     align-items : center;
   }
 
-  
 }
 `;
 
