@@ -59,8 +59,71 @@ export function Card() {
 }
 const SectionCard = styled.section`
   .content__container{
-    
+    background-color: #ffffff;
+    padding-right: 10px;
+    padding-top: 30px;
   }
+  .content__container ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    list-style : none;
+  }
+  .card{
+    position:relative;
+    background-color: #ffffff;
+    width: 290px;
+    height: 270px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 12px;
+    margin: 15px 10px;    
+}
+.card--wrap{
+    background-color: rgba(5, 5, 85, 0);
+    width: 290px;
+    height: 270px;
+    position: absolute;
+    z-index: 10;
+    top:0
+  
+}
+
+.card__content{
+    padding: 12px 12px 20px;
+   
+}
+.card__img{    
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card__text__title{
+    color: #222222;
+    font-size: large;
+    font-weight: bold;
+    margin: 11px 0px 10px;
+    height: 28px;
+    overflow: hidden ;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.card__text__content{
+    color: #7c7979;
+    margin: 11px 0px 10px;
+    overflow: hidden;
+    height: 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card:hover{
+    transition: all 300ms ease;
+    transform: scale(1.02) ;
+}
+
+
   #cardList{
 
   }
