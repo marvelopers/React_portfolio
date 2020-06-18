@@ -106,3 +106,4 @@ export function profileDataReducer(state = profileData, action) {
 export const getProfileData = (state) => state;
 
 export const store = createStore(profileDataReducer, profileData);
+

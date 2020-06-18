@@ -40,7 +40,6 @@ const NavbarStyle = styled.div`
 
   .navbar__container{
   width: 1080px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   background-color: transparent;
@@ -58,16 +57,5 @@ const NavbarStyle = styled.div`
 }
 `;
 
-
-
-const Button = styled.button`
-  background-color : blue;
-
-  color: paleviletred;
-  margin : 1em;
-  padding : 0.25em 1em;
-  border :2px 
-`;
-/////////////////////////
 
 export default Navbar;

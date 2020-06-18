@@ -15,10 +15,13 @@ import {
 
 /////////////////////////
 const GlobalStyle = createGlobalStyle`
+
   body{
+    width:1080px;
+    margin : auto;    
     padding : 0;
-    margin : 0;
     font-family : "Noto Sans KR", sans-serif;
+    color : #222222;
     cursor : default;
   }
 `

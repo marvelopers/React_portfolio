@@ -32,7 +32,14 @@ export function About_major(props) {
 /////////////style/////////////
 
 const DivMajor = styled.div`
-  background-color : blue;
+  display : flex;
+  text-align : center;
+  justify-content : center;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  .major{
+    margin-bottom: 30px;
+  }
 `;
 
 export default About_major;

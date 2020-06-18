@@ -85,8 +85,14 @@ export function Work() {
 
 /////////////style/////////////
 const SectionAbout = styled.section`
+  justify-content : center;
+  display : flex;
   border : 1px solid black;
-  /* background-color : black; */
+  .work__projects{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 `;
 
 

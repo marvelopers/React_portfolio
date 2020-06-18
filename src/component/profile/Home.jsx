@@ -31,7 +31,10 @@ export function Home(props) {
 export default Home;
 
 const StyledHomeSection = styled.section`
-  .home__contianer {    
+  text-align : center;
+  margin-top : 150px;
+
+  .home__contianer { 
   }
   
 `;

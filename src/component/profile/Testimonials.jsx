@@ -35,8 +35,7 @@ export function Testimonials(props) {
 const SectionAbout = styled.section`
   background-color : #f3f6d4;
   display : flex;
-  /* margin : 40px; */
-
+  text-align : center;
   .testimonial__avatar{
     border-radius : 29%;
     width : 250px;

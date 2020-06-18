@@ -47,8 +47,13 @@ export function About(props) {
 }
 
 const SectionAbout = styled.section`
+  justify-content : center;
+  text-align : center;
   border : 1px solid black;
   /* background-color : black; */
+  .about__jobs{
+    text-align : left;
+  }
 `;
 
 export default About;
