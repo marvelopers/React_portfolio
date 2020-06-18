@@ -20,10 +20,9 @@ export function Work() {
             Marketer<span className="category__count">2</span>
           </button>
         </div>
-
         <div className="work__projects">
           <a data-type="Developer" href="#p1" className="project" target="blank" id="p1">
-            {/* <img src={board} alt="project1" className="project__img" /> */}
+            <img src='imgs/board.jpeg' alt="project1" className="project__img" />
             <div className="project__description">
               <h3>[웹 프로그래밍 Java]</h3>
               <ul>
@@ -34,7 +33,7 @@ export function Work() {
             </div>
           </a>
           <a data-type="Developer" href="#p2" className="project" target="blank" id="p2">
-            {/* <img src={nodeSt} alt="project1" className="project__img" /> */}
+            <img src='/imgs/nodeSt.jpeg' alt="project1" className="project__img" />
             <div className="project__description">
               <h3>[Node.js 스터디]</h3>
               <ul>
@@ -45,7 +44,7 @@ export function Work() {
             </div>
           </a>
           <a data-type="Marketer" href="#p3" className="project" target="blank" id="p3">
-            {/* <img src={happy} alt="project1" className="project__img" /> */}
+            <img src='/imgs/happy.jpeg' alt="project1" className="project__img" />
             <div className="project__description">
               <h3>[해피톡 홈페이지 리뉴얼]</h3>
               <ul>
@@ -56,7 +55,7 @@ export function Work() {
             </div>
           </a>
           <a data-type="Developer" href="#p4" className="project" target="blank" id="p4">
-            {/* <img src={dataR} alt="project1" className="project__img" /> */}
+            <img src='/imgs/dataR.jpeg' alt="project1" className="project__img" />
             <div className="project__description">
               <h3>[빅데이터 R 수업 수료]</h3>
               <ul>
@@ -67,7 +66,7 @@ export function Work() {
             </div>
           </a>
           <a data-type="Marketer" href="#p5" className="project" target="blank" id="p5">
-            {/* <img src={iwt} alt="project1" className="project__img" /> */}
+            <img src='/imgs/iwt.jpeg' alt="project1" className="project__img" />
             <div className="project__description">
               <h3>[회사 홈페이지 리뉴얼]</h3>
               <ul>
@@ -96,4 +95,6 @@ const SectionAbout = styled.section`
 `;
 
 
+
+//이미지 절대경로 작업
 export default Work;

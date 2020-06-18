@@ -1,5 +1,4 @@
-import { createStore } from 'redux';
-
+import { createStore, combineReducers } from 'redux';
 
 const profileData = {
   homeData: {
@@ -71,6 +70,49 @@ const profileData = {
   }
 };
 
+const blogData = {
+
+  card: [
+    {
+      id: "1",
+      tag: 'front',
+      title: 'Front-end',
+      content: 'fab fa-js-square',
+      author: 'one'
+    },
+    {
+      id: "2",
+      tag: 'back',
+      title: 'Front-end',
+      content: 'fab fa-js-square',
+      author: 'two'
+    },
+    {
+      id: "3",
+      tag: 'marketing',
+      title: 'Front-end',
+      content: 'fab fa-js-square',
+      author: 'three'
+    },
+    {
+      id: "4",
+      tag: 'thought',
+      title: 'Front-end',
+      content: 'fab fa-js-square',
+      author: 'four'
+    },
+    {
+      id: "5",
+      tag: 'front',
+      title: 'Front-end',
+      content: 'fab fa-js-square',
+      author: 'five'
+    }
+  ]
+
+};
+
+//Action에 따른 실행 함수 
 export function profileDataReducer(state = profileData, action) {
   switch (action.type) {
     case "SET_DATA":
@@ -102,8 +144,27 @@ export function profileDataReducer(state = profileData, action) {
   }
 }
 
+//submit 버튼 함수 
 
-export const getProfileData = (state) => state;
+export function blogDataReucer(state = blogData, action) {
+  switch (action.type) {
+    case "SET_DATA1":
+      return state;
+    case "MIX_DATA1":
+      return state;
+    default:
+      return state;
+  }
+}
 
-export const store = createStore(profileDataReducer, profileData);
 
+
+export const getProfileData = (state) => state.profileDataReducer;
+export const getBlogData = (state) => state.blogDataReucer;
+
+const rootReducer = combineReducers({
+  profileDataReducer,
+  blogDataReucer
+})
+
+export const store = createStore(rootReducer);

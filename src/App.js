@@ -12,6 +12,7 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 
+import { store } from "./store/store";
 
 /////////////////////////
 const GlobalStyle = createGlobalStyle`
