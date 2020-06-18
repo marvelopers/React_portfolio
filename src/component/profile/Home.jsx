@@ -33,4 +33,5 @@ export default Home;
 const StyledHomeSection = styled.section`
   .home__contianer {    
   }
+  
 `;

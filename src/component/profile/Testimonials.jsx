@@ -11,17 +11,17 @@ function Testimonals(props) {
   const testimonials = storeData.speech.testimonials;
 
   return (
-    <SectionAbout id="testimonals" class="section">
-      <div class="section__container">
+    <SectionAbout id="testimonals" className="section">
+      <div className="section__container">
         <h1>Testimonials</h1>
         <h3>See what they say about me</h3>
-        <div class="testimonials">
+        <div className="testimonials">
           {testimonials.map(t => (
-            <div class="testimonial">
-              <img src={t.img} alt="profile" class="testimonial__avatar" />
-              <div class="testimonial__speech-bubble">
+            <div className="testimonial">
+              <img src={t.img} alt="profile" className="testimonial__avatar" />
+              <div className="testimonial__speech-bubble">
                 <p>{t.speech}</p>
-                <p class="name">{t.name}</p>
+                <p className="name">{t.name}</p>
               </div>
             </div>
           ))}
@@ -35,5 +35,7 @@ function Testimonals(props) {
 const SectionAbout = styled.section`
   border : 1px solid black;
   /* background-color : black; */
+
+
 `;
 export default Testimonals;
