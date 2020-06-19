@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import styled from "styled-components";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getBlogData } from "../../store/store";
 
 export function Card() {
 
+  const dispatch = useDispatch();
   const storeData = useSelector(getBlogData);
   const cardData = storeData.card;
+
 
   useEffect(() => { console.log("storeData", storeData) }, []);
 
@@ -35,13 +37,23 @@ export function Card() {
     }
   }
 
+  //클릭하면 인덱스와 
+  const CardClick = (id) => {
+
+    const payload = {
+      index: id,
+      isOpen: true
+    }
+
+    dispatch({ type: 'SET_MODAL_DATA', payload: payload })
+  }
 
   return (
     <SectionCard id="content">
       <div className="content__container">
         <ul id="cardList">
           {cardData.map(m => (
-            <li data-tag={m.tag}>
+            <li data-tag={m.tag} onClick={() => { CardClick(m.id) }}>
               <div className="card">
                 <img src={getImagePath(m.tag)} alt='{imagePath}' class="card__img" />
                 <div className="card__content">

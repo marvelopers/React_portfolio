@@ -12,7 +12,8 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 
-import { store } from "./store/store";
+import { store, getModalStatusData } from "./store/store";
+import { CardModal } from "./component/blog";
 
 /////////////////////////
 const GlobalStyle = createGlobalStyle`
@@ -35,9 +36,10 @@ function App() {
   //Redux_Store
   const dispatch = useDispatch();
   const storeData = useSelector(getProfileData);
+  const modalStatusData = useSelector(getModalStatusData);
 
   useEffect(() => {
-
+    console.log('modalStatusData', modalStatusData);
   }, []);
 
   const data = JSON.stringify(storeData.homeData);
@@ -68,6 +70,8 @@ function App() {
           <section id="portfolio">
             <RouteContainer></RouteContainer>
           </section >
+          <section></section>
+          {modalStatusData.isOpen && <CardModal />}
         </main>
       </Router>
     </>

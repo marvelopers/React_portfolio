@@ -52,7 +52,7 @@ const profileData = {
       {
         name: '정성희/happytalk',
         speech: `1년동안 함께 일한 디자이너입니다. 커뮤니케이션 능력이 뛰어난 마케터로 부분을 보기보다는 전체를 볼줄 아는 마케터입니다.
-        책임감 있게 프로젝트를 리딩했으며 지구력까지 겸비하였기 때문에 지금 하고 있는 개발의 업무도 끈기있게 물고 늘어질것이라고 생각합니다.<br />
+        책임감 있게 프로젝트를 리딩했으며 지구력까지 겸비하였기 때문에 지금 하고 있는 개발의 업무도 끈기있게 물고 늘어질것이라고 생각합니다.
         좋은 인생선배, 개발선배를 만나 김서현의 능력을 더 발휘하였으면 좋겠습니다.`,
         img: '/imgs/jsh.jpeg'
       },
@@ -83,8 +83,8 @@ const blogData = {
     {
       id: "2",
       tag: 'back',
-      title: 'Front-end',
-      content: 'fab fa-js-square',
+      title: 'Back-end',
+      content: '백엔드에 대한 내용을 입력합니다. 내용은 다음과 같습니다',
       author: 'two'
     },
     {
@@ -111,6 +111,11 @@ const blogData = {
   ]
 
 };
+
+const modalStatus = {
+  isOpen: false,
+  index: 0
+}
 
 //Action에 따른 실행 함수 
 export function profileDataReducer(state = profileData, action) {
@@ -158,13 +163,24 @@ export function blogDataReucer(state = blogData, action) {
 }
 
 
+//modal Reducer 함수
+export function modalStatusReducer(state = modalStatus, action) {
+  switch (action.type) {
+    case "SET_MODAL_DATA":
+      return { ...action.payload }
+    default: return state;
+  }
+}
+
 
 export const getProfileData = (state) => state.profileDataReducer;
 export const getBlogData = (state) => state.blogDataReucer;
+export const getModalStatusData = (state) => state.modalStatusReducer;
 
 const rootReducer = combineReducers({
   profileDataReducer,
-  blogDataReucer
+  blogDataReucer,
+  modalStatusReducer
 })
 
 export const store = createStore(rootReducer);
