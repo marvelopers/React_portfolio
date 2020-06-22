@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBlogData, getModalStatusData } from '../../store/store';
 
+import { Link } from 'react-router-dom'
 
 export function CardModal() {
 
@@ -34,10 +35,10 @@ export function CardModal() {
         <div class="detail__title">{cardInfo.title}</div>
         <div class="detail__content">{cardInfo.content}</div>
         <div class="detail__footer">
-          <a href="update.html?postId=${cardInfo.id}"><button class="detail__footer__edit">수정</button></a>
+          <Link to={"update/" + cardInfo.id}><button class="detail__footer__edit" onClick={() => { CloseClick() }}>수정</button></Link>
         </div>
       </div>
-    </SectionCard>
+    </SectionCard >
   );
 }
 

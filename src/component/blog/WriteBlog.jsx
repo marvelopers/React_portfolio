@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, withRouter } from 'react-router-dom';
 import { useState } from 'react';
-// import CardList from './cardList';
+import CardList from './CardList';
 
 
 //match update 
-export function WriteBlog(match) {
 
-  //write&update card
+export function WriteBlog({ match }) {
+
   const cards = useSelector(state => state.blogDataReducer.card);
   let card = {
     tag: "",
@@ -17,8 +17,6 @@ export function WriteBlog(match) {
     content: "",
     author: ""
   }
-
-  //update
   if (match) {
     card = cards.filter(card => card.id === match.params.id)[0];
   }
@@ -30,7 +28,7 @@ export function WriteBlog(match) {
 
   //button 클릭시 submit 버튼 실행 함수
   const submit = () => {
-    //update
+    //id 정제
     if (match) {
       dispatch({
         type: "UPDATE_POST",
@@ -39,11 +37,10 @@ export function WriteBlog(match) {
           tag: blog.tag,
           title: blog.title,
           content: blog.content,
-          author: blog.author
+          author: blog.author,
         }
       })
     } else {
-      //write
       dispatch({
         type: "ADD_POST",
         payload: {
@@ -62,34 +59,31 @@ export function WriteBlog(match) {
 
 
 
-
     history.push('/blog');
   };
 
-  /////////////////////EventHanbler////////////////////////
-
-  const hanbleChangeTitle = (e) => {
+  const handleChageTitle = (e) => {
     setBlog({
       ...blog,
       title: e.target.value
     })
   }
 
-  const hanbleChangeContent = (e) => {
+  const handleChageContent = (e) => {
     setBlog({
       ...blog,
       content: e.target.value
     })
   }
 
-  const hanbleChangeTag = (e) => {
+  const handleChageTag = (e) => {
     setBlog({
       ...blog,
       tag: e.target.value
     })
   }
 
-  const hanbleChangeAuthor = (e) => {
+  const handleChageAuthor = (e) => {
     setBlog({
       ...blog,
       author: e.target.value
@@ -110,7 +104,7 @@ export function WriteBlog(match) {
               rows="1"
               placeholder="Title"
               value={blog.title}
-              onChange={hanbleChangeTitle}></textarea>
+              onChange={handleChageTitle}></textarea>
           </div>
           <div className="content" id="blogContent">
             <textarea
@@ -119,13 +113,13 @@ export function WriteBlog(match) {
               rows="15"
               placeholder="Tell your story…"
               value={blog.content}
-              onChange={hanbleChangeContent}
+              onChange={handleChageContent}
             ></textarea>
           </div>
           {/*  writeBtn */}
           <div id="writeBottom">
             <label>subject :
-              <select name="tag" className="tag" id="blogTag" value={blog.tag} onChange={hanbleChangeTag}>
+              <select name="tag" className="tag" id="blogTag" value={blog.tag} onChange={handleChageTag}>
                 <option value="front">Front-end</option>
                 <option value="back">Back-end</option>
                 <option value="marketing">Marketing</option>
@@ -141,7 +135,7 @@ export function WriteBlog(match) {
                 maxlength="5"
                 autocomplete
                 value={blog.author}
-                onChange={hanbleChangeAuthor}
+                onChange={handleChageAuthor}
               /></label>
 
           </div>
@@ -153,6 +147,8 @@ export function WriteBlog(match) {
     </>
   )
 }
+
+
 const SectionWrite = styled.section`
     display: flex;
     justify-content: space-around;
@@ -245,4 +241,4 @@ const SectionWrite = styled.section`
 
 
 
-export default withRouter(WriteBlog);
+export default withRouter(WriteBlog)

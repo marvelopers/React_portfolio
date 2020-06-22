@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import { routes } from "./route";
+import { WriteBlog } from "../component/blog";
 
 export const RouteContainer = () => {
   return (
@@ -17,6 +18,7 @@ export const RouteContainer = () => {
           </Route>
         )
       })}
+      <Route exact path={'/update/:id'} component={WriteBlog} />
     </Switch>
   )
 }

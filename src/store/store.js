@@ -156,6 +156,9 @@ export function blogDataReducer(state = blogData, action) {
     case "SET_DATA1":
       return state;
     case "ADD_POST":
+      // console.log("action_add_post");
+      // console.log("action===>", action);
+
       const newCard = {
         ...action.payload,
         id: Math.max.apply(null, state.card.map(e => e.id)) + 1
@@ -169,9 +172,11 @@ export function blogDataReducer(state = blogData, action) {
     case "UPDATE_POST":
       const index = state.card.findIndex(card => card.id === action.payload.id);
       const cards = state.card;
+      cards[index] = action.payload;
+      // const card = state.card[index];
       return {
         ...state,
-        card: [...state.card, newCard],
+        card: cards
       }
     default:
       return state;
