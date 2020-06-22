@@ -114,7 +114,7 @@ const blogData = {
 
 const modalStatus = {
   isOpen: false,
-  index: 0
+  cardId: 0
 }
 
 //Action에 따른 실행 함수 

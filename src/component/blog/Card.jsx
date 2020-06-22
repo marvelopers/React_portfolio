@@ -41,7 +41,7 @@ export function Card() {
   const CardClick = (id) => {
 
     const payload = {
-      index: id,
+      cardId: id,
       isOpen: true
     }
 

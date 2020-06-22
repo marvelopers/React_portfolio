@@ -10,7 +10,14 @@ export function CardModal() {
   const modalStoreData = useSelector(getModalStatusData);
   const blogStoreData = useSelector(getBlogData);
 
-  const cardInfo = blogStoreData.card[modalStoreData.index];
+  //카드 ID 값을 기준으로 데이터 확인
+  const cardInfo = blogStoreData.card.find(card => card.id === modalStoreData.cardId);
+
+  //const cardInfo = blogStoreData.card[blogStoreData.card.map(c => c.id).indexOf(modalStoreData.cardId)];
+
+
+  console.log("cardInfo==============>", cardInfo);
+
 
   const CloseClick = () => {
     const payload = {
