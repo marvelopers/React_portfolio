@@ -155,8 +155,13 @@ export function blogDataReucer(state = blogData, action) {
   switch (action.type) {
     case "SET_DATA1":
       return state;
-    case "MIX_DATA1":
-      return state;
+    case "ADD_POST":
+      console.log("action_add_post");
+      const newState = {
+        ...state,
+        card: [...state.card, action.payload]
+      }
+      return newState;
     default:
       return state;
   }
@@ -173,10 +178,14 @@ export function modalStatusReducer(state = modalStatus, action) {
 }
 
 
+//store는 state, action 을 받아서 case에 따라서 return 값& default 설정 
+
 export const getProfileData = (state) => state.profileDataReducer;
 export const getBlogData = (state) => state.blogDataReucer;
 export const getModalStatusData = (state) => state.modalStatusReducer;
 
+
+//rootReducer = combineReducer
 const rootReducer = combineReducers({
   profileDataReducer,
   blogDataReucer,

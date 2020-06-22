@@ -42,20 +42,19 @@ const NavbarStyle = styled.div`
   width: 1080px;
   display: flex;
   justify-content: space-between;
-  background-color: transparent;
+  background-color: #ffffff;
   align-items: center;
   color: var(--color-dark-black);
   padding: 3px;
   box-shadow: rgba(0, 0.1, 0.1, 0.049) 0px 5px 12px;
-  
-  .navbar__menu--list{
-    display :  flex;
-    justify-content : space-between;
-    align-items : center;
-  }
-
 }
-`;
 
+  .navbar__menu--list{
+  display :  flex;
+  justify-content : space-between;
+  align-items : center;
+  list-style : none;
+  }
+`;
 
 export default Navbar;

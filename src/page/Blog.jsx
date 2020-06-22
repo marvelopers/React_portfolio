@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardList, Write } from "../component/blog";
+import { Card, CardList } from "../component/blog";
 
 
 export const Blog = () => {
@@ -7,7 +7,6 @@ export const Blog = () => {
     <>
       <Card></Card>
       <CardList></CardList>
-      <Write></Write>
     </>
   )
 }

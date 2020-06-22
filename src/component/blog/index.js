@@ -1,4 +1,4 @@
 export * from "./Card";
 export * from "./CardList";
-export * from "./Write";
+export * from "./WriteBlog";
 export * from "./CardModal";

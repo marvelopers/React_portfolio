@@ -1,5 +1,5 @@
 import React from "react";
-import { AboutMe, Blog } from "../page";
+import { AboutMe, Blog, WriteBlogPage } from "../page";
 
 
 export const routes = [
@@ -16,13 +16,12 @@ export const routes = [
     path: "/blog",
     exact: true,
     component: <Blog />
+  },
+  {
+    className: "navbar__menu--list",
+    page: "WRITE",
+    path: "/write",
+    exact: true,
+    component: <WriteBlogPage />
   }
-  // },
-  // {
-  //   className: "navbar__menu--list",
-  //   page: "GotoBlog",
-  //   path: "/Write",
-  //   exact: true,
-  //   component: <Blog />
-  // }
 ]

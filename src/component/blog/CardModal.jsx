@@ -12,8 +12,7 @@ export function CardModal() {
 
   //카드 ID 값을 기준으로 데이터 확인
   const cardInfo = blogStoreData.card.find(card => card.id === modalStoreData.cardId);
-
-  //const cardInfo = blogStoreData.card[blogStoreData.card.map(c => c.id).indexOf(modalStoreData.cardId)];
+  //==> const cardInfo = blogStoreData.card[blogStoreData.card.map(c => c.id).indexOf(modalStoreData.cardId)];
 
 
   console.log("cardInfo==============>", cardInfo);

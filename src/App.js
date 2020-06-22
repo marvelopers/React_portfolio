@@ -17,7 +17,9 @@ import { CardModal } from "./component/blog";
 
 /////////////////////////
 const GlobalStyle = createGlobalStyle`
-
+  head{
+    
+  }
   body{
     width:1080px;
     margin : auto;    
@@ -48,29 +50,13 @@ function App() {
     //하나의 객체만 return 한다.
     <>
       <GlobalStyle />
-      <button onClick={() => {
-
-        console.log(data);
-
-        dispatch({ type: "SET_DATA", payload: { newHomeData: "NewMarVeloper" } });
-      }}>Next Data</button>
-
-      <button onClick={() => {
-        dispatch({ type: "SET_DATA", payload: { newHomeData: "NOWMarVeloper" } })
-      }}
-      >NOW Data</button>
-
-      <button onClick={() => {
-        dispatch({ type: "MIX_DATA", payload: { mixHomeData: "DataMix" } })
-      }}
-      >Mix Data</button>
-
-      <Router><Navbar></Navbar>
+      <Router>
+        <Navbar></Navbar>
         <main>
           <section id="portfolio">
             <RouteContainer></RouteContainer>
           </section >
-          <section></section>
+          <section id="blog"></section>
           {modalStatusData.isOpen && <CardModal />}
         </main>
       </Router>

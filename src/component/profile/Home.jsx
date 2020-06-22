@@ -32,9 +32,9 @@ export default Home;
 
 const StyledHomeSection = styled.section`
   text-align : center;
-  margin-top : 150px;
+`;
 
-  .home__contianer { 
-  }
+const DivHome = styled.section`
+  padding-top : 150px;
   
 `;
