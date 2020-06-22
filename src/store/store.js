@@ -157,9 +157,16 @@ export function blogDataReucer(state = blogData, action) {
       return state;
     case "ADD_POST":
       console.log("action_add_post");
+      console.log("action===>", action);
+
+      const newCard = {
+        ...action.payload,
+        id: Math.max.apply(null, state.card.map(e => e.id)) + 1
+      }
       const newState = {
         ...state,
-        card: [...state.card, action.payload]
+        card: [...state.card, newCard],
+
       }
       return newState;
     default:

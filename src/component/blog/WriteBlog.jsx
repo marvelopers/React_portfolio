@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styled from "styled-components";
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 //store랑 연결!
 
@@ -11,31 +12,36 @@ export function WriteBlog() {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  // const create = (payload) => {
-  //   const newCard = {
-  //     ...payload,
-  //   }
 
-  //   const newContentList = [...contentsList, newCard];
-  //   store.setItem
-  // }
+  const [blog, setBlog] = useState({
+    tag: "",
+    title: "",
+    content: "",
+    author: ""
+  });
 
   //button 클릭시 submit 버튼 실행 함수
   const submit = () => {
     //id 정제
 
+
+    //미입력 값 검사
+    Object.keys(blog).forEach((key) => {
+      //if (!blog[key]) alert(`${key}가 미입력 되었습니다`);
+    })
+
+
     dispatch({
       type: "ADD_POST",
       payload: {
-        id: "",
-        tag: "tag",
-        title: "",
-        content: "",
-        author: ""
+        tag: blog.tag,
+        title: blog.title,
+        content: blog.content,
+        author: blog.author,
       }
     })
 
-    // history.push('/blog');
+    history.push('/blog');
   };
 
   // function reducer(state = initialState, action) {
@@ -50,20 +56,52 @@ export function WriteBlog() {
   //   }
   // };
 
-
+  console.log("blog", blog);
   return (
     <>
       <SectionWrite id="blog">
         <form id="blogForm">
           {/* Write */}
-          <div className="blogtext"><textarea className="write__title" id="blogTitle" cols="1" rows="1" placeholder="Title"></textarea></div>
+          <div className="blogtext">
+            <textarea
+              className="write__title"
+              id="blogTitle"
+              cols="1"
+              rows="1"
+              placeholder="Title"
+              value={blog.title}
+              onChange={(e) => {
+                setBlog({
+                  ...blog,
+                  title: e.target.value
+                })
+              }}></textarea>
+          </div>
           <div className="content" id="blogContent">
-            <textarea className="write__content--textarea" cols="1" rows="15" placeholder="Tell your story…"></textarea>
+            <textarea
+              className="write__content--textarea"
+              cols="1"
+              rows="15"
+              placeholder="Tell your story…"
+              value={blog.content}
+              onChange={(e) => {
+                setBlog({
+                  ...blog,
+                  content: e.target.value
+                })
+              }}
+            ></textarea>
           </div>
           {/*  writeBtn */}
           <div id="writeBottom">
             <label>subject :
-              <select name="tag" className="tag" id="blogTag">
+              <select name="tag" className="tag" id="blogTag" value={blog.tag} onChange={(e) => {
+                setBlog({
+                  ...blog,
+                  tag: e.target.value
+                })
+
+              }}>
                 <option value="front">Front-end</option>
                 <option value="back">Back-end</option>
                 <option value="marketing">Marketing</option>
@@ -72,8 +110,20 @@ export function WriteBlog() {
             </label>
 
             <label> name :
-                        <input id="blogName" type="text" className="write__author--input" maxlength="5"
-                autocomplete /></label>
+                <input
+                id="blogName"
+                type="text"
+                className="write__author--input"
+                maxlength="5"
+                autocomplete
+                value={blog.author}
+                onChange={(e) => {
+                  setBlog({
+                    ...blog,
+                    author: e.target.value
+                  })
+                }}
+              /></label>
 
           </div>
           <button type="button" className="write__publish__btn active" onClick={submit}>
