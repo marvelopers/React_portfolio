@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBlogData, getModalStatusData } from '../../store/store';
-
+import { getBlogData, getModalStatusData } from "../../store/store";
 import { Link } from 'react-router-dom'
 
 export function CardModal() {
@@ -24,21 +23,22 @@ export function CardModal() {
     dispatch({ type: 'SET_MODAL_DATA', payload: payload })
   }
 
-
-  console.log('cardInfo====>>', cardInfo);
-
   const deleteBtnHandler = (id) => {
-    dispatch({
-      type: "SET_MODAL_DATA", payload: {
-        isOpen: false,
-        cardId: 0
-      }
-    });
+    // dispatch({
+    //   type: "SET_MODAL_DATA", payload: {
+    //     isOpen: false,
+    //     cardId: 0
+    //   }
+    // });
+    // dispatch({
+    //   type: "DELETE_POST",
+    //   payload: id
+    // });
 
     dispatch({
-      type: "DELETE_POST",
+      type: "DELETE_REQUEST",
       payload: id
-    });
+    })
   }
 
   return (

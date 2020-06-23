@@ -12,7 +12,7 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 
-import { store, getModalStatusData } from "./store/store";
+import { getModalStatusData } from "../src/store/store"
 import { CardModal } from "./component/blog";
 
 /////////////////////////

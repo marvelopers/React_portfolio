@@ -3,7 +3,7 @@ import styled from "styled-components";
 import AboutMajor from './AboutMajor';
 
 import { useSelector } from 'react-redux';
-import { getProfileData } from '../../store/store';
+import { getProfileData } from "../../store/store";
 
 
 export function About(props) {
