@@ -178,6 +178,14 @@ export function blogDataReducer(state = blogData, action) {
         ...state,
         card: cards
       }
+    case "DELETE_POST":
+      console.log('state', state);
+      console.log('state.card.fitler(card => card.id !== action.payload)', state.card.filter(card => card.id !== action.payload));
+      console.log('action.payload', action.payload);
+      return {
+        ...state,
+        card: state.card.filter(card => card.id !== action.payload)
+      }
     default:
       return state;
   }

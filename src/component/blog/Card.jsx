@@ -53,14 +53,14 @@ export function Card() {
       <div className="content__container">
         <ul id="cardList">
           {cardData.map(m => (
-            <li data-tag={m.tag} onClick={() => { CardClick(m.id) }}>
+            <li key={m.id} data-tag={m.tag} onClick={() => { CardClick(m.id) }}>
               <div className="card">
-                <img src={getImagePath(m.tag)} alt='{imagePath}' class="card__img" />
+                <img src={getImagePath(m.tag)} alt='{imagePath}' className="card__img" />
                 <div className="card__content">
                   <div className="card__text__title">{m.title}</div>
                   <div className="card__text__content">{m.content}</div>
                 </div>
-                <div class="card--wrap" data-cardid={m.id}></div>
+                <div className="card--wrap" data-cardid={m.id}></div>
               </div>
             </li>
           ))}

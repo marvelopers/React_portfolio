@@ -15,10 +15,7 @@ export function CardModal() {
   const cardInfo = blogStoreData.card.find(card => card.id === modalStoreData.cardId);
   //==> const cardInfo = blogStoreData.card[blogStoreData.card.map(c => c.id).indexOf(modalStoreData.cardId)];
 
-
-  console.log("cardInfo==============>", cardInfo);
-
-
+  //close Button
   const CloseClick = () => {
     const payload = {
       isOpen: false
@@ -26,16 +23,33 @@ export function CardModal() {
     }
     dispatch({ type: 'SET_MODAL_DATA', payload: payload })
   }
+
+
   console.log('cardInfo====>>', cardInfo);
+
+  const deleteBtnHandler = (id) => {
+    dispatch({
+      type: "SET_MODAL_DATA", payload: {
+        isOpen: false,
+        cardId: 0
+      }
+    });
+
+    dispatch({
+      type: "DELETE_POST",
+      payload: id
+    });
+  }
 
   return (
     <SectionCard>
-      <div class="detail__container">
+      <div className="detail__container">
         <span><ImgClose src="/imgs/close.png" alt="closeBtn" onClick={() => { CloseClick() }} /></span>
-        <div class="detail__title">{cardInfo.title}</div>
-        <div class="detail__content">{cardInfo.content}</div>
-        <div class="detail__footer">
-          <Link to={"update/" + cardInfo.id}><button class="detail__footer__edit" onClick={() => { CloseClick() }}>수정</button></Link>
+        <div className="detail__title">{cardInfo.title}</div>
+        <div className="detail__content">{cardInfo.content}</div>
+        <div className="detail__footer">
+          <Link to={"update/" + cardInfo.id}><Btn className="detail__footer__edit" onClick={() => { CloseClick() }}>수정</Btn></Link>
+          <Btn className="detail__footer__edit" onClick={() => { deleteBtnHandler(modalStoreData.cardId) }}>삭제</Btn>
         </div>
       </div>
     </SectionCard >
@@ -93,26 +107,6 @@ const SectionCard = styled.section`
     justify-content: flex-end;
     align-items: flex-end;
 }
-
-.detail__footer__edit{
-    width: 48px;
-    color: var(--color-light-grey);
-    font-size: var(--font-micro);
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1) ;
-    padding-bottom: 8px;
-}
-
-.detail__footer__edit:hover{
-    width: 48px;
-    color: var(--color-dark-purple);
-    border: none;
-    transition: all var(--Animation-duration) ease;
-    border-bottom: 2px solid var(--color-dark-purple) ;
-    padding-bottom: 8px;
-}
-
 `;
 
 const ImgClose = styled.img`
@@ -126,4 +120,25 @@ const ImgClose = styled.img`
     transition: all 300ms ease;
     cursor: pointer;
   }
+`;
+
+const Btn = styled.button`
+  width: 48px;
+  background-color :#ffffff;
+  color: #7c7979;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1) ;
+  padding-bottom: 8px;
+
+:hover{
+    width: 48px;
+    color: #2A0E4F;
+    border: none;
+    transition: all 300ms ease;
+    border-bottom: 2px solid #2A0E4F ;
+    padding-bottom: 8px;
+}
+
 `;

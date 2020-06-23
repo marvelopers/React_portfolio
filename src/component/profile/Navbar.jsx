@@ -16,7 +16,7 @@ export function Navbar() {
           <ul className="navbar__menu--list">
             {routes.map(r => {
               return (
-                <li className={r.className}>
+                <li key={r.index} className={r.className}>
                   <Link to={r.path}>{r.page}</Link>
                 </li>
               )
