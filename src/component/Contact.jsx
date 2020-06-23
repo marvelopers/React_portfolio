@@ -9,9 +9,9 @@ export function Contact() {
       <h2 className="contact__phone">
         <i className="fas fa-phone"></i> 010-8860-5035</h2>
       <div className="contact__links">
-        <a href="https://github.com/briller8" target="_blank">
+        {/* <a href="https://github.com/marvelopers" target="_blank">
           <i className="fab fa-github-square"></i>
-        </a>
+        </a> */}
         <a href="https://blog.naver.com/PostList.nhn?blogId=brilliant0115&from=postList&categoryNo=20"
           target="__blank">
           <i className="fab fa-blogger"></i>

@@ -151,14 +151,11 @@ export function profileDataReducer(state = profileData, action) {
 
 //submit 버튼 함수 
 
-export function blogDataReucer(state = blogData, action) {
+export function blogDataReducer(state = blogData, action) {
   switch (action.type) {
     case "SET_DATA1":
       return state;
     case "ADD_POST":
-      console.log("action_add_post");
-      console.log("action===>", action);
-
       const newCard = {
         ...action.payload,
         id: Math.max.apply(null, state.card.map(e => e.id)) + 1
@@ -169,6 +166,13 @@ export function blogDataReucer(state = blogData, action) {
 
       }
       return newState;
+    case "UPDATE_POST":
+      const index = state.card.findIndex(card => card.id === action.payload.id);
+      const cards = state.card;
+      return {
+        ...state,
+        card: [...state.card, newCard],
+      }
     default:
       return state;
   }
@@ -188,14 +192,14 @@ export function modalStatusReducer(state = modalStatus, action) {
 //store는 state, action 을 받아서 case에 따라서 return 값& default 설정 
 
 export const getProfileData = (state) => state.profileDataReducer;
-export const getBlogData = (state) => state.blogDataReucer;
+export const getBlogData = (state) => state.blogDataReducer;
 export const getModalStatusData = (state) => state.modalStatusReducer;
 
 
 //rootReducer = combineReducer
 const rootReducer = combineReducers({
   profileDataReducer,
-  blogDataReucer,
+  blogDataReducer,
   modalStatusReducer
 })
 

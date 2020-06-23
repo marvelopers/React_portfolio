@@ -1,29 +1,59 @@
 import React, { useEffect } from 'react';
 import styled from "styled-components";
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 import { useState } from 'react';
+// import CardList from './cardList';
 
-//store랑 연결!
 
-//write가 데이터 store에 전송 
+//match update 
+export function WriteBlog(match) {
 
-export function WriteBlog() {
-
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const [blog, setBlog] = useState({
+  //write&update card
+  const cards = useSelector(state => state.blogDataReducer.card);
+  let card = {
     tag: "",
     title: "",
     content: "",
     author: ""
-  });
+  }
+
+  //update
+  if (match) {
+    card = cards.filter(card => card.id === match.params.id)[0];
+  }
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const [blog, setBlog] = useState(card);
 
   //button 클릭시 submit 버튼 실행 함수
   const submit = () => {
-    //id 정제
-
+    //update
+    if (match) {
+      dispatch({
+        type: "UPDATE_POST",
+        payload: {
+          id: match.params.id,
+          tag: blog.tag,
+          title: blog.title,
+          content: blog.content,
+          author: blog.author
+        }
+      })
+    } else {
+      //write
+      dispatch({
+        type: "ADD_POST",
+        payload: {
+          tag: blog.tag,
+          title: blog.title,
+          content: blog.content,
+          author: blog.author,
+        }
+      })
+    }
 
     //미입력 값 검사
     Object.keys(blog).forEach((key) => {
@@ -31,30 +61,40 @@ export function WriteBlog() {
     })
 
 
-    dispatch({
-      type: "ADD_POST",
-      payload: {
-        tag: blog.tag,
-        title: blog.title,
-        content: blog.content,
-        author: blog.author,
-      }
-    })
+
 
     history.push('/blog');
   };
 
-  // function reducer(state = initialState, action) {
-  //   console.log(action);
-  //   switch (action.type) {
-  //     case ADD_POST: {
-  //       return {
-  //         ...state,
-  //         blogs: [...state, action.data]
-  //       }
-  //     }
-  //   }
-  // };
+  /////////////////////EventHanbler////////////////////////
+
+  const hanbleChangeTitle = (e) => {
+    setBlog({
+      ...blog,
+      title: e.target.value
+    })
+  }
+
+  const hanbleChangeContent = (e) => {
+    setBlog({
+      ...blog,
+      content: e.target.value
+    })
+  }
+
+  const hanbleChangeTag = (e) => {
+    setBlog({
+      ...blog,
+      tag: e.target.value
+    })
+  }
+
+  const hanbleChangeAuthor = (e) => {
+    setBlog({
+      ...blog,
+      author: e.target.value
+    })
+  }
 
   console.log("blog", blog);
   return (
@@ -70,12 +110,7 @@ export function WriteBlog() {
               rows="1"
               placeholder="Title"
               value={blog.title}
-              onChange={(e) => {
-                setBlog({
-                  ...blog,
-                  title: e.target.value
-                })
-              }}></textarea>
+              onChange={hanbleChangeTitle}></textarea>
           </div>
           <div className="content" id="blogContent">
             <textarea
@@ -84,24 +119,13 @@ export function WriteBlog() {
               rows="15"
               placeholder="Tell your story…"
               value={blog.content}
-              onChange={(e) => {
-                setBlog({
-                  ...blog,
-                  content: e.target.value
-                })
-              }}
+              onChange={hanbleChangeContent}
             ></textarea>
           </div>
           {/*  writeBtn */}
           <div id="writeBottom">
             <label>subject :
-              <select name="tag" className="tag" id="blogTag" value={blog.tag} onChange={(e) => {
-                setBlog({
-                  ...blog,
-                  tag: e.target.value
-                })
-
-              }}>
+              <select name="tag" className="tag" id="blogTag" value={blog.tag} onChange={hanbleChangeTag}>
                 <option value="front">Front-end</option>
                 <option value="back">Back-end</option>
                 <option value="marketing">Marketing</option>
@@ -117,12 +141,7 @@ export function WriteBlog() {
                 maxlength="5"
                 autocomplete
                 value={blog.author}
-                onChange={(e) => {
-                  setBlog({
-                    ...blog,
-                    author: e.target.value
-                  })
-                }}
+                onChange={hanbleChangeAuthor}
               /></label>
 
           </div>
@@ -226,4 +245,4 @@ const SectionWrite = styled.section`
 
 
 
-export default WriteBlog;
+export default withRouter(WriteBlog);
